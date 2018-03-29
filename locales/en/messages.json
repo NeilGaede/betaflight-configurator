@@ -702,6 +702,9 @@
     "initialSetupAttitude": {
         "message": "$1 deg"
     },
+    "initialSetupAltitude": {
+        "message": "$1 cm"
+    },
     "initialSetupAccelCalibStarted": {
         "message": "Accelerometer calibration started"
     },

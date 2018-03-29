@@ -178,6 +178,8 @@ TABS.setup.initialize = function (callback) {
             roll_e = $('dd.roll'),
             pitch_e = $('dd.pitch'),
             heading_e = $('dd.heading');
+            
+        var alti_e = $('dd.alti');
 
         if (semver.lt(CONFIG.apiVersion, "1.36.0")) {
             arming_disable_flags_e.hide();
@@ -216,16 +218,21 @@ TABS.setup.initialize = function (callback) {
                 });
             }
         }
-
+		
         function get_fast_data() {
             MSP.send_message(MSPCodes.MSP_ATTITUDE, false, false, function () {
 	            roll_e.text(i18n.getMessage('initialSetupAttitude', [SENSOR_DATA.kinematics[0]]));
 	            pitch_e.text(i18n.getMessage('initialSetupAttitude', [SENSOR_DATA.kinematics[1]]));
                 heading_e.text(i18n.getMessage('initialSetupAttitude', [SENSOR_DATA.kinematics[2]]));
-
+				
                 self.renderModel();
                 self.updateInstruments();
             });
+            MSP.send_message(MSPCodes.MSP_ALTITUDE, false, false, function () {
+            	alti_e.text(i18n.getMessage('initialSetupAltitude',[SENSOR_DATA.altitude]));
+            
+            });
+            
         }
 
         GUI.interval_add('setup_data_pull_fast', get_fast_data, 33, true); // 30 fps
