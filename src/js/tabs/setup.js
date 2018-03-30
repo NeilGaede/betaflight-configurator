@@ -217,7 +217,7 @@ TABS.setup.initialize = function (callback) {
                 });
             }
         }
-		var varitron_e = $('dd.varitron');
+		//var varitron_e = $('dd.varitron');
         function get_fast_data() {
             MSP.send_message(MSPCodes.MSP_ATTITUDE, false, false, function () {
 	            roll_e.text(i18n.getMessage('initialSetupAttitude', [SENSOR_DATA.kinematics[0]]));
@@ -232,7 +232,7 @@ TABS.setup.initialize = function (callback) {
             
             MSP.send_message(MSPCodes.MSP_ALTITUDE, false, false, function () {
             	alti_e.text(i18n.getMessage('initialSetupAltitude',[SENSOR_DATA.altitude]));
-            	varitron_e.text(i18n.getMessage('initialSetupVario',[SENSOR_DATA.altitude]));
+            	//varitron_e.text(i18n.getMessage('initialSetupVario',[SENSOR_DATA.altitude]));
             });
         
         }

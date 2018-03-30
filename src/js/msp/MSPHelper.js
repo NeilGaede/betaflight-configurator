@@ -161,7 +161,7 @@ MspHelper.prototype.process_data = function(dataHandler) {
                 break;
             case MSPCodes.MSP_ALTITUDE:
                 SENSOR_DATA.altitude = parseFloat((data.read32() / 100.0).toFixed(2)); // correct scale factor
-                SENSOR_DATA.vario = parseFloat((data.read16() / 100.0).toFixed(2)); // correct scale factor
+                SENSOR_DATA.vario = parseFloat((data.read32() / 100.0).toFixed(2)); // correct scale factor
                 
                 break;
             case MSPCodes.MSP_SONAR:
