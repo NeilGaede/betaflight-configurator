@@ -705,6 +705,9 @@
     "initialSetupAltitude": {
         "message": "$1 cm"
     },
+    "initialSetupVario": {
+        "message": "$1 cms"
+    },
     "initialSetupAccelCalibStarted": {
         "message": "Accelerometer calibration started"
     },
