@@ -180,6 +180,9 @@ TABS.setup.initialize = function (callback) {
             heading_e = $('dd.heading'),
             alti_e = $('dd.alti');
 
+		var vtron_e = $('dd.varitron');
+        
+
         if (semver.lt(CONFIG.apiVersion, "1.36.0")) {
             arming_disable_flags_e.hide();
         }
@@ -217,8 +220,7 @@ TABS.setup.initialize = function (callback) {
                 });
             }
         }
-		//var varitron_e = $('dd.varitron');
-        function get_fast_data() {
+		function get_fast_data() {
             MSP.send_message(MSPCodes.MSP_ATTITUDE, false, false, function () {
 	            roll_e.text(i18n.getMessage('initialSetupAttitude', [SENSOR_DATA.kinematics[0]]));
 	            pitch_e.text(i18n.getMessage('initialSetupAttitude', [SENSOR_DATA.kinematics[1]]));
@@ -232,7 +234,7 @@ TABS.setup.initialize = function (callback) {
             
             MSP.send_message(MSPCodes.MSP_ALTITUDE, false, false, function () {
             	alti_e.text(i18n.getMessage('initialSetupAltitude',[SENSOR_DATA.altitude]));
-            	//varitron_e.text(i18n.getMessage('initialSetupVario',[SENSOR_DATA.altitude]));
+            	vtron_e.text(i18n.getMessage('initialSetupVario',[SENSOR_DATA.vario]));
             });
         
         }
